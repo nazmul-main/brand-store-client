@@ -5,6 +5,7 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import MyCart from "../pages/MyCart/MyCart";
 import SignIn from "../pages/Signin/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
+import PrivateRoute from "../Private/PrivateRoute";
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -17,11 +18,15 @@ const myCreateRoute = createBrowserRouter([
             },
             {
                 path: "/addprocudct",
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute>
+                    <AddProduct></AddProduct>
+                </PrivateRoute>
             },
             {
                 path: "/mycart",
-                element: <MyCart></MyCart>
+                element: <PrivateRoute>
+                    <MyCart></MyCart>
+                </PrivateRoute>
             },
             {
                 path: "/signin",

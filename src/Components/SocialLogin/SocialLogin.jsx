@@ -1,17 +1,28 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const SocialLogin = () => {
 
-
     const {  googleLogin } = useContext(AuthContext)
+
+    const navigate = useNavigate()
     
 
     const handleSocialLogin = (loginFunction) => {
         loginFunction()
-            .then(res => console.log(res))
-            .catch(err => console.error(err))
+        .then(res => {
+            toast.success('Sigin in successfully');
+            navigate(location?.state ? location.state : '/')
+            
+        })
+        .catch(err => {
+            toast.error('eamil or password was wrong'); 
+
+        });
     }
 
 

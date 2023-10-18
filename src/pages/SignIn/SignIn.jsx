@@ -1,9 +1,16 @@
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import useAuth from "../../Hook/useAuth";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
     const { signin } = useAuth()
+
+    const location = useLocation() 
+    const navigate = useNavigate()
+
+    console.log('log in' ,location);
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -14,8 +21,15 @@ const SignIn = () => {
 
         /* creatting  user */
         signin(email, password)
-            .then(res => console.log(res))
-            .then(err => console.log(err))
+        .then(res => {
+            toast.success('Sigin in successfully');
+            navigate(location?.state ? location.state : '/')
+            
+        })
+        .catch(err => {
+            toast.error('eamil or password was wrong'); 
+
+        });
 
     }
     return (

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../Hook/useAuth";
 
 
 const navLink = <>
@@ -23,10 +24,11 @@ const navLink = <>
 
 </>
 const Navbar = () => {
-    // const { user, logout } = UseAuth()
+    const { user, logout } = useAuth()
+    console.log(user);
 
     return (
-        <div className=" navbar max-w-screen-xl mx-auto my-4 felx ">
+        <div className=" navbar max-w-screen-xl mx-auto my-4 felx items-center justify-center ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-sm lg:hidden mr-2">
@@ -47,9 +49,33 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/signin'}>
-                    <button className="btn">Login</button>
-                </Link>
+                {
+                    user?.email ? <div className="navbar-end flex items-center">
+                        <div className="dropdown dropdown-end mr-4">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL ? user.photoURL : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"} alt={user.displayName} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className=":  dropdown-content mt-3 z-[1] p-2 shadow bg-green-200 rounded-b-full rounded-l-full py-2 px-4">
+                                <li>
+                                    <h3 className=" font-semibold "> {user.displayName
+                                    }</h3>
+
+                                </li>
+                                <li>
+                                    <h3 className="font-semibold  ">{user.email
+                                    }</h3>
+
+                                </li>
+                            </ul>
+
+                        </div>
+                        <Link onClick={logout} className=" px-4 py-1 rounded-md bg-[#03d5b4] text-[#2C3659] font-bold ">Sign Out</Link>
+                    </div> : <div className="navbar-end">
+                        <Link to='/signin' className=" px-4 py-1 rounded-md bg-[#03d5b4] text-[#2C3659] font-bold">Sign In</Link>
+                    </div>
+                }
             </div>
 
 

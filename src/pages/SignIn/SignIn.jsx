@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import useAuth from "../../Hook/useAuth";
-import toast from "react-hot-toast";
 
 const SignIn = () => {
     const { signin } = useAuth()

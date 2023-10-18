@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignIn = () => {
     return (
@@ -20,7 +21,7 @@ const SignIn = () => {
                 </form>
                 <p className="text-center text-gray-600">You already have an account? <Link to={'/signup'}>Sign in</Link></p>
                 <div className="mt-4">
-                    <button type="button" className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 focus:ring focus:ring-red-200">Sign in with Google</button>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>

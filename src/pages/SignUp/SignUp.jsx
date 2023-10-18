@@ -17,6 +17,10 @@ const SignUp = () => {
                 <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="you@example.com" required />
             </div>
             <div className="mb-4">
+                <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">Photo </label>
+                <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="photo url" required />
+            </div>
+            <div className="mb-4">
                 <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">Password</label>
                 <input type="text" id="password" name="password" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="********" required />
             </div>

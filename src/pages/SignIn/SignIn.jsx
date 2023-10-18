@@ -3,33 +3,36 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import useAuth from "../../Hook/useAuth";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useState } from "react";
 
 const SignIn = () => {
     const { signin } = useAuth()
 
-    const location = useLocation() 
+    const location = useLocation()
     const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false);
 
-    console.log('log in' ,location);
+    console.log('log in', location);
 
     const handleSubmit = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value
         const password = form.password.value
-        console.log( email, password);
+        console.log(email, password);
 
         /* creatting  user */
         signin(email, password)
-        .then(res => {
-            toast.success('Sigin in successfully');
-            navigate(location?.state ? location.state : '/')
-            
-        })
-        .catch(err => {
-            toast.error('eamil or password was wrong'); 
+            .then(res => {
+                toast.success('Sigin in successfully');
+                navigate(location?.state ? location.state : '/')
 
-        });
+            })
+            .catch(err => {
+                toast.error('eamil or password was wrong');
+
+            });
 
     }
     return (
@@ -41,10 +44,28 @@ const SignIn = () => {
                         <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">Email</label>
                         <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="you@example.com" required />
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">Password</label>
-                        <input type="text" id="password" name="password" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="********" required />
+                    <div className="relative mb-4">
+                        <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">
+                            Password
+                        </label>
+                        <div className="relative">
+                            <input
+                                className="outline-none border border-[#03d5b4] w-full rounded-md py-2 px-2 pr-10"
+                                placeholder="Password"
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                id="password"
+                                required
+                            />
+                            <span
+                                className="text-[#03d5b4] absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </span>
+                        </div>
                     </div>
+
                     <div className="mb-4">
                         <button type="submit" className="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 focus:ring focus:ring-indigo-200">Login</button>
                     </div>

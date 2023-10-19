@@ -14,8 +14,8 @@ const navLink = <>
     <li><NavLink to="/mycart" className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> My Cart</NavLink>
     </li>
-    {/* <li><NavLink to="/contact" className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> Added </NavLink>
+    {/* <li><NavLink to="/allphones" className={({ isActive, isPending }) =>
+        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> All Phones </NavLink>
     </li> */}
     <li><NavLink to="/update" className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> Updated</NavLink>

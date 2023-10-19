@@ -1,10 +1,50 @@
 
 const AddProduct = () => {
+
+    const handleAddProduct = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value
+        const type = form.type.value
+        const price = form.price.value
+        const photo = form.photo.value
+        const brand = form.brand.value
+        const rating = form.rating.value
+        const description = form.description.value
+        console.log(name, type, price, photo, brand, rating, description);
+
+        const myData = {
+            name, 
+            type,
+            price,
+            photo,
+            brand,
+            rating,
+            description
+        }
+        console.log(myData);
+
+        fetch('http://localhost:5001/phones',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(myData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+
+
+
+    }
+
     return (
         <div className=" max-w-screen-xl mx-auto px-4 ">
             <h2 className="py-7 text-xl md:text-4xl font-bold text-center border-4">Add product</h2>
 
-            <form>
+            <form onSubmit={handleAddProduct}>
                 <div>
                     <div className="md:flex justify-center gap-7 py-3 mt-5 mb-5">
                         <div className="md:w-2/4 space-y-3">
@@ -21,13 +61,13 @@ const AddProduct = () => {
                             </div>
                             <div>
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                                    Brand Name
+                                    Type
                                 </label>
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    name="brand"
+                                    name="type"
                                     type="text"
-                                    placeholder="brand"
+                                    placeholder="phone"
                                 />
                             </div>
                             <div>
@@ -50,14 +90,14 @@ const AddProduct = () => {
                                 </label>
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    name="image"
+                                    name="photo"
                                     type="text"
                                     placeholder="image"
                                 />
                             </div>
                             <div>
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                                    Choose a brand:
+                                    Brand Name
                                 </label>
                                 <select
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

@@ -7,6 +7,7 @@ import SignIn from "../pages/Signin/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "../Private/PrivateRoute";
 import Update from "../Components/Update/Update";
+import OurProduct from "../Components/ourProduct/ourProduct";
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -15,7 +16,8 @@ const myCreateRoute = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader:() => fetch('http://localhost:5001/phones')
             },
             {
                 path: "/addprocudct",
@@ -40,6 +42,12 @@ const myCreateRoute = createBrowserRouter([
             {
                 path: "/update",
                 element: <Update></Update>
+            },
+            {
+                path: "/allphones",
+                element: <OurProduct></OurProduct>,
+                loader:() => fetch('http://localhost:5001/phones')
+                
             },
         ]
     }

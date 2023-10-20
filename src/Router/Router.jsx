@@ -22,7 +22,7 @@ const myCreateRoute = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader:() => fetch('http://localhost:5001/brand')
+                loader:() => fetch('https://phone-store-eight.vercel.app/brand')
             },
             {
                 path: "/addprocudct",
@@ -35,7 +35,7 @@ const myCreateRoute = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyCart></MyCart>
                 </PrivateRoute>,
-                loader:() => fetch('http://localhost:5001/mycart')
+                loader:() => fetch('https://phone-store-eight.vercel.app/mycart')
             },
             {
                 path: "/signin",
@@ -48,13 +48,13 @@ const myCreateRoute = createBrowserRouter([
             {
                 path: "/update/:_id",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`http://localhost:5001/phones/${params._id}`)
+                loader: ({ params }) => fetch(`https://phone-store-eight.vercel.app/phones/${params._id}`)
                 
             },
             {
                 path: "/details/:_id",
                 element: <Details></Details>,
-                loader:() => fetch('http://localhost:5001/phones')
+                loader:() => fetch('https://phone-store-eight.vercel.app/phones')
                 
             },
             {
@@ -78,7 +78,7 @@ const myCreateRoute = createBrowserRouter([
                 element: <PrivateRoute>
                     <Phone/>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/phon/${params.brand}`)
+                loader: ({ params }) => fetch(`https://phone-store-eight.vercel.app/phon/${params.brand}`)
 
                
             },

@@ -17,7 +17,7 @@ const Update = () => {
         const rating = form.rating.value
         // console.log(name, type, price, photo, brand, rating,);
 
-        fetch(`http://localhost:5001/phones/${updatePhone._id}`, {
+        fetch(`https://phone-store-eight.vercel.app/phones/${updatePhone._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

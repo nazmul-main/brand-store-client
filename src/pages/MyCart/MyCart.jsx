@@ -5,19 +5,19 @@ const MyCart = () => {
 
     const cart = useLoaderData()
     console.log(cart);
- 
+
 
     const handleDelete = (_id) => {
         console.log(_id);
-        fetch(`http://localhost:5001/mycart/${_id}`, {
+        fetch(`https://phone-store-eight.vercel.app/mycart/${_id}`, {
             method: 'DELETE',
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        
-    
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+
+
 
         // Swal.fire({
         //     title: 'Are you sure?',
@@ -36,7 +36,7 @@ const MyCart = () => {
         //       )
         //     }
         //   })
-        
+
     };
 
 

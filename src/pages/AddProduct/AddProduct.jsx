@@ -26,7 +26,7 @@ const AddProduct = () => {
         }
         console.log(myData);
 
-        fetch('http://localhost:5001/phones',{
+        fetch('https://phone-store-eight.vercel.app/phones',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

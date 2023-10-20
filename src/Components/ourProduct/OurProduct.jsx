@@ -7,7 +7,7 @@ const OurProduct = () => {
   const [phonesdata, setPhonesdata] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5001/phones')
+    fetch('https://phone-store-eight.vercel.app/phones')
       .then(res => res.json())
       .then(data => {
         setPhonesdata(data); // Update the state with the fetched data

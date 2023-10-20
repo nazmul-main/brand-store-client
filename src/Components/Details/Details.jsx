@@ -27,7 +27,7 @@ const Details = () => {
         const {  name, type, price, photo, brand, rating, } = phone
         const sent = {  name, type, price, photo, brand, rating } 
 
-        fetch('http://localhost:5001/mycart',{
+        fetch('https://phone-store-eight.vercel.app/mycart',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

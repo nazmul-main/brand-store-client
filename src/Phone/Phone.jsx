@@ -1,5 +1,19 @@
 
 import { Link, useLoaderData } from "react-router-dom";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+
+
+const overlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(0, 0, 0, 0.5)',
+};
+
 
 
 const Phone = () => {
@@ -18,20 +32,40 @@ const Phone = () => {
     }
 
 
-    console.log(phone);
+    // console.log(phone);
     return (
-        <div className="max-w-screen-xl mx-auto px-4">
-            <h2 className='text-4xl font-bold text-center my-12'>Phone</h2>
+        <div >
+          
 
+            <Carousel showArrows={true} showStatus={false} showThumbs={false}>
+                <div>
+                    <div style={overlayStyle}></div>
+                    <img
+                        className='h-[40vh] object-cover'
+                        src="https://www.startech.com.bd/image/cache/catalog/blog/2023/apple-iphone-15-leak/apple-iphone-15-leak-banner-740x350.jpg"
+                        alt="Image 1"
+                    />
+                </div>
+                <div className="max-w-screen-xl mx-auto px-4-12">
+                    <div style={overlayStyle}></div>
+                    <img
+                        className='h-[40vh] object-cover'
+                        src="https://www.nicepng.com/png/detail/870-8706206_samsung-mobile-banner-1-samsung-galaxy.png"
+                        alt="Image 2"
+                    />
+                </div>
+                <div>
+                    <div style={overlayStyle}></div>
+                    <img
+                        className='h-[40vh] object-cover'
+                        src="https://telecombyte.com/wp-content/uploads/2022/03/Oppo-K10-Banner.jpg"
+                        alt="Image 3"
+                    />
+                </div>
+            </Carousel>
+            <h2 className='text-4xl font-bold text-center my-12'></h2>
 
-            
-
-
-
-
-
-
-            <div className="grid grid-cols-4">
+            <div className="max-w-screen-xl  mx-auto px-4 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  my-12">
 
                 {
 
@@ -79,6 +113,8 @@ const Phone = () => {
                 }
             </div>
         </div>
+
+        
     );
 };
 

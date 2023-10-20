@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddProduct = () => {
 
@@ -31,9 +33,15 @@ const AddProduct = () => {
             },
             body: JSON.stringify(myData)
         })
-        .then(res => res.json())
+        .then(res => res.json({
+            
+        }))
         .then(data => {
             console.log(data);
+            form.reset();
+            toast.success('Product added successfully', {
+                position: 'top-center', // You can adjust the position as needed
+            });
         })
 
 

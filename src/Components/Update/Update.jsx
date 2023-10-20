@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Update = () => {
 
@@ -14,15 +15,15 @@ const Update = () => {
         const photo = form.photo.value
         const brand = form.brand.value
         const rating = form.rating.value
-        console.log(name, type, price, photo, brand, rating,);
+        // console.log(name, type, price, photo, brand, rating,);
 
-        fetch(`http://localhost:5001/phones/${updatePhone._id}`,{
+        fetch(`http://localhost:5001/phones/${updatePhone._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name, 
+                name,
                 type,
                 price,
                 photo,
@@ -33,6 +34,10 @@ const Update = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                form.reset();
+                toast.success('Product added successfully', {
+                    position: 'top-center',
+                });
             })
 
     }

@@ -17,9 +17,9 @@ const navLink = <>
     {/* <li><NavLink to="/allphones" className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> All Phones </NavLink>
     </li> */}
-    <li><NavLink to="/update" className={({ isActive, isPending }) =>
+    {/* <li><NavLink to="/update" className={({ isActive, isPending }) =>
         isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> Updated</NavLink>
-    </li>
+    </li> */}
 
 
 </>

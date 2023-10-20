@@ -1,42 +1,59 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 
 const MyCart = () => {
 
-    const cart = useLoaderData()
-    console.log(cart);
+    const loadedCart = useLoaderData()
+    const [cart , setCart] = useState(loadedCart)
+ 
+
+
 
 
     const handleDelete = (_id) => {
         console.log(_id);
-        fetch(`https://phone-store-eight.vercel.app/mycart/${_id}`, {
-            method: 'DELETE',
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be delete  this cart!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://phone-store-eight.vercel.app/mycart/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log();
+                        if (data.deletedCount > 0) {
+                            const remaining = loadedCart.filter(cart => cart._id !== _id)
+                            setCart(remaining)
+
+                            Swal.fire(
+                                'Deleted!',
+                                'your cart has been deleted.',
+                                'success'
+                            )
+                        }
+
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
 
 
 
-        // Swal.fire({
-        //     title: 'Are you sure?',
-        //     text: "You won't be able to revert this!",
-        //     icon: 'warning',
-        //     showCancelButton: true,
-        //     confirmButtonColor: '#3085d6',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: 'Yes, delete it!'
-        //   }).then((result) => {
-        //     if (result.isConfirmed) {
-        //       Swal.fire(
-        //         'Deleted!',
-        //         'Your file has been deleted.',
-        //         'success'
-        //       )
-        //     }
-        //   })
 
+
+
+
+        
     };
 
 

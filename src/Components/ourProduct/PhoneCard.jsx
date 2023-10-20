@@ -10,9 +10,9 @@ const PhoneCard = ({ phone }) => {
     const { _id, name, type, price, photo, brand, rating, } = phone
     return (
         <div>
-            <div className="bg-white rounded-lg shadow-md p-4 w-64">
+            <div className=" bg-white rounded-lg shadow-md p-4 w-64">
                 <div>
-                    <img src={photo} alt='' className="w-full  object-cover mb-2" />
+                    <img src={photo} alt='' className="w-full h-56  object-cover mb-2" />
                     <h2 className=" font-bold mb-2 text">{name}</h2>
                 </div>
 

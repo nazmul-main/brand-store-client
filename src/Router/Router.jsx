@@ -12,6 +12,7 @@ import Phone from "../Phone/Phone";
 import Update from "../Components/Update/Update";
 import Error from "../pages/Error/Error";
 import Details from "../Components/Details/Details";
+import AllPhones from "../Components/All Phones/AllPhones";
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -58,7 +59,7 @@ const myCreateRoute = createBrowserRouter([
                 
             },
             {
-                path: "/allphones",
+                path: "/newproduct",
                 element: <OurProduct></OurProduct>,
             },
             {
@@ -69,6 +70,14 @@ const myCreateRoute = createBrowserRouter([
                 path: "/allbrand/brand",
                 element: <PrivateRoute>
                     <AllBrands/>
+                </PrivateRoute>
+                
+               
+            },
+            {
+                path: "/allphones",
+                element: <PrivateRoute>
+                    <AllPhones/>
                 </PrivateRoute>
                 
                

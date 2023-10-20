@@ -6,26 +6,25 @@ const navLink = <>
 
 
     <li><NavLink to="/" className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> Home</NavLink>
+        isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> Home</NavLink>
     </li>
     <li><NavLink to="/addprocudct" className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> Add Procuct</NavLink>
+        isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> Add Procuct</NavLink>
     </li>
     <li><NavLink to="/mycart" className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> My Cart</NavLink>
+        isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> My Cart</NavLink>
     </li>
     {/* <li><NavLink to="/allphones" className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> All Phones </NavLink>
+        isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> All Phones </NavLink>
     </li> */}
     <li><NavLink to="/update" className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-[#03d5b4] font-semibold underline" : "hover:text-[#03d5b4] font-semibold text-[#2C3659]"}> Updated</NavLink>
+        isPending ? "pending" : isActive ? "text-[#e54040] font-semibold underline" : "hover:text-[#e54040] font-semibold text-[#2C3659]"}> Updated</NavLink>
     </li>
 
 
 </>
 const Navbar = () => {
     const { user, logout } = useAuth()
-    console.log(user);
 
     return (
         <div className=" navbar max-w-screen-xl mx-auto my-4 felx items-center justify-between ">
@@ -38,8 +37,12 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <Link to={'/'} className="normal-case text-xl">
-                    <img className=" w-32 md:w-40" src="https://colmooc.eu/wp-content/uploads/2019/12/Letstudy_Logo_Light_Horizontal@2x.png" alt="" />
+                <Link to={'/'} className="normal-case text-xl flex items-center justify-center gap-3">
+                    <img className="w-10" src="https://i.ibb.co/nzzvDKv/download-removebg-preview-2.png" alt="" />
+                    <h2 className="font-bold">
+                        <span>PHONE </span>
+                        <span className="text-red-500">STORE</span>
+                    </h2>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex items-start">
@@ -71,9 +74,9 @@ const Navbar = () => {
                             </ul>
 
                         </div>
-                        <Link onClick={logout} className=" px-4 py-1 rounded-md bg-[#03d5b4] text-[#2C3659] font-bold ">Sign Out</Link>
+                        <Link onClick={logout} className=" px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign Out</Link>
                     </div> : <div className="navbar-end">
-                        <Link to='/signin' className=" px-4 py-1 rounded-md bg-[#03d5b4] text-[#2C3659] font-bold">Sign In</Link>
+                        <Link to='/signin' className=" px-4 py-1 rounded-md bg-[#e54040] text-[#fcfcfc] font-bold">Sign In</Link>
                     </div>
                 }
             </div>

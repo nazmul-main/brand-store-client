@@ -6,18 +6,23 @@ import MyCart from "../pages/MyCart/MyCart";
 import SignIn from "../pages/Signin/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "../Private/PrivateRoute";
-import Update from "../Components/Update/Update";
 import OurProduct from "../Components/ourProduct/ourProduct";
+import AllBrands from "../AllBrands/AllBrands";
+import Phone from "../Phone/Phone";
+import Update from "../Components/Update/Update";
+import Error from "../pages/Error/Error";
+import Details from "../Components/Details/Details";
 
 const myCreateRoute = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: "/",
                 element: <Home></Home>,
-                loader:() => fetch('http://localhost:5001/phones')
+                loader:() => fetch('http://localhost:5001/brand')
             },
             {
                 path: "/addprocudct",
@@ -40,14 +45,41 @@ const myCreateRoute = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: "/update",
-                element: <Update></Update>
+                path: "/update/:_id",
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`http://localhost:5001/phones/${params._id}`)
+                
+            },
+            {
+                path: "/details/:_id",
+                element: <Details></Details>,
+                loader:() => fetch('http://localhost:5001/phones')
+                
             },
             {
                 path: "/allphones",
                 element: <OurProduct></OurProduct>,
-                loader:() => fetch('http://localhost:5001/phones')
+            },
+            {
+                path: "/phonedetails",
+                element: <OurProduct></OurProduct>,
+            },
+            {
+                path: "/allbrand/brand",
+                element: <PrivateRoute>
+                    <AllBrands/>
+                </PrivateRoute>
                 
+               
+            },
+            {
+                path: "/phone/:brand",
+                element: <PrivateRoute>
+                    <Phone/>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5001/phon/${params.brand}`)
+
+               
             },
         ]
     }

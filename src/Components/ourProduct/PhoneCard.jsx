@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
+
+
 
 const PhoneCard = ({ phone }) => {
-    
-    const { name, type, price, photo, brand, rating, } = phone
+
+    const { _id, name, type, price, photo, brand, rating, } = phone
     return (
         <div>
             <div className="bg-white rounded-lg shadow-md p-4 w-64">
@@ -18,7 +22,7 @@ const PhoneCard = ({ phone }) => {
                 </div>
                 <div className="md:flex justify-between">
                     <p className="text-green-600 font-semibold mb-2">{price}</p>
-                    <div className="flex items-center">
+                    <div className="flex items-center mb-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5 text-yellow-400 mr-1"
@@ -36,8 +40,14 @@ const PhoneCard = ({ phone }) => {
 
 
                 <div className="md:flex justify-between">
-                    <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Details</button>
-                    <button className="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600 ml-2">Update</button>
+                    <Link to={`/details/${_id}`}>
+                        <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Details</button>
+                    </Link>
+
+                    <Link to={`/update/${_id}`}>
+                        <button className="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600 ml-2">Update</button>
+                    </Link>
+
                 </div>
 
             </div>

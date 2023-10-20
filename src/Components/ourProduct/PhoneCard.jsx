@@ -39,14 +39,12 @@ const PhoneCard = ({ phone }) => {
                 </div>
 
 
-                <div className="md:flex justify-between">
+                <div className="">
                     <Link to={`/details/${_id}`}>
-                        <button className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Details</button>
+                        <button className="w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Details</button>
                     </Link>
 
-                    <Link to={`/update/${_id}`}>
-                        <button className="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600 ml-2">Update</button>
-                    </Link>
+                    
 
                 </div>
 

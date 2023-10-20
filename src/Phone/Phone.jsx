@@ -37,7 +37,7 @@ const Phone = () => {
         <div >
           
 
-            <Carousel showArrows={true} showStatus={false} showThumbs={false}>
+          <Carousel showArrows={false} showStatus={false} showThumbs={false} autoPlay={true} interval={2000} infiniteLoop={true}>
                 <div>
                     <div style={overlayStyle}></div>
                     <img

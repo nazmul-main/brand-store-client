@@ -37,10 +37,10 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <Link to={'/'} className="normal-case text-xl flex items-center justify-center gap-3">
-                    <img className="w-10" src="https://i.ibb.co/nzzvDKv/download-removebg-preview-2.png" alt="" />
-                    <h2 className="font-bold">
-                        <span>PHONE </span>
+                <Link to={'/'} className="normal-case text-xl flex items-center md:2]">
+                    <img className="w-5 md:w-9" src="https://i.ibb.co/nzzvDKv/download-removebg-preview-2.png" alt="" />
+                    <h2 className="text-[8px] md:text-[18px]  font-bold">
+                        <span>PHONE </span> 
                         <span className="text-red-500">STORE</span>
                     </h2>
                 </Link>
@@ -56,7 +56,7 @@ const Navbar = () => {
                     user?.email ? <div className="navbar-end flex items-center">
                         <div className="dropdown dropdown-end mr-4">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
+                                <div className="w-7 md:w-10 rounded-full">
                                     <img src={user.photoURL ? user.photoURL : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"} alt={user.displayName} />
                                 </div>
                             </label>
@@ -74,9 +74,11 @@ const Navbar = () => {
                             </ul>
 
                         </div>
-                        <Link onClick={logout} className=" px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign Out</Link>
+                        
+                        
+                        <Link onClick={logout} className=" text-[10px] md:text-[18px] px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign Out</Link>
                     </div> : <div className="navbar-end">
-                        <Link to='/signin' className=" px-4 py-1 rounded-md bg-[#e54040] text-[#fcfcfc] font-bold">Sign In</Link>
+                        <Link to='/signin' className="text-[12px] md:text-[18px] px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign In</Link>
                     </div>
                 }
             </div>

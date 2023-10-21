@@ -23,7 +23,7 @@ const Banner = () => {
                         alt="Image 1"
                     />
                     <div className="text-center text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <h1 className="text-xl md:text-4xl font-bold">Your Ultimate Phone Destination</h1>
+                        <h1 className="text-xl md:text-4xl font-bold dark:text-red-500">Your Ultimate Phone Destination</h1>
                         <p className="text-[8px] md:text-sm">Explore the latest and greatest smartphones at our online phone store. Find the perfect device to suit your needs, from top brands to budget-friendly options.</p>
                         <Link to="/allphones">
                             <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">All Phones</button>
@@ -33,7 +33,7 @@ const Banner = () => {
                 <div className="max-w-screen-xl mx-auto px-4-12">
                     <div style={overlayStyle}></div>
                     <img
-                        className='h-[40vh] object-cover'
+                        className='md:h-[80vh] h-[40vh] object-cover'
                         src="https://cdn.thewirecutter.com/wp-content/media/2023/09/budgetandroidphones-2048px-6939-3x2-1.jpg?auto=webp&quality=75&crop=1.91:1&width=1200"
                         alt="Image 2"
                     />
@@ -48,7 +48,7 @@ const Banner = () => {
                 <div>
                     <div style={overlayStyle}></div>
                     <img
-                        className='h-[40vh] object-cover'
+                        className='md:h-[80vh] h-[40vh] object-cover'
                         src="https://fdn.gsmarena.com/imgroot/static/headers/makers/nokia-2023-1.jpg"
                         alt="Image 3"
                     />
@@ -63,7 +63,7 @@ const Banner = () => {
                 <div>
                 <div style={overlayStyle}></div>
                     <img
-                        className='h-[40vh] object-cover'
+                        className='md:h-[80vh] h-[40vh] object-cover'
                         src="https://cdn.thewirecutter.com/wp-content/media/2023/10/androidphones-2048px-4856-3x2-1.jpg?auto=webp&quality=75&crop=3:2&width=1024"
                         alt="Image 4"
                     />
@@ -79,7 +79,7 @@ const Banner = () => {
                 <div>
                 <div style={overlayStyle}></div>
                     <img
-                        className='h-[40vh] object-cover'
+                        className='md:h-[80vh] h-[40vh] object-cover'
                         src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Samsung-Galaxy-S20-Family-CC?wid=834&hei=470&fit=crop"
                         alt="Image 5"
                     />
@@ -96,7 +96,7 @@ const Banner = () => {
                 <div>
                 <div style={overlayStyle}></div>
                     <img
-                        className='h-[40vh] object-cover'
+                        className='md:h-[80vh] h-[40vh] object-cover'
                         src="https://fdn.gsmarena.com/imgroot/static/headers/makers/huawei-2023-2.jpg"
                         alt="Image 6"
                     />

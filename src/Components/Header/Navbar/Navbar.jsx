@@ -1,5 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 
 const navLink = <>
@@ -24,10 +26,31 @@ const navLink = <>
 
 </>
 const Navbar = () => {
+
+
     const { user, logout } = useAuth()
+    const [theme, setTheme] = useState(false);
+
+
+    const handleChange = () => {
+        // Update the theme state
+        setTheme(!theme);
+
+        // Apply the theme class to the HTML element
+        const htmlElement = document.querySelector("html");
+        if (theme) {
+            htmlElement.setAttribute("class", "light");
+        } else {
+            htmlElement.setAttribute("class", "dark");
+        }
+    };
+
+
+
+
 
     return (
-        <div className=" navbar max-w-screen-xl mx-auto my-4 felx items-center justify-between ">
+        <div className=" navbar max-w-screen-xl mx-auto my-4 felx items-center justify-between {backgroundColor === 'light' ? 'bg-primary-color' : 'bg-secondary-color'}">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-sm lg:hidden mr-2">
@@ -40,7 +63,7 @@ const Navbar = () => {
                 <Link to={'/'} className="normal-case text-xl flex items-center md:2]">
                     <img className="w-5 md:w-9" src="https://i.ibb.co/nzzvDKv/download-removebg-preview-2.png" alt="" />
                     <h2 className="text-[8px] md:text-[18px]  font-bold">
-                        <span>PHONE </span> 
+                        <span>PHONE </span>
                         <span className="text-red-500">STORE</span>
                     </h2>
                 </Link>
@@ -51,35 +74,49 @@ const Navbar = () => {
 
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className={`navbar-end ${theme ? 'bg-primary-color' : ''}`}>
+                <button className="btn" onClick={handleChange}>
+                    {theme ? <FaEyeSlash /> : <FaEye />}
+                </button>
                 {
-                    user?.email ? <div className="navbar-end flex items-center">
-                        <div className="dropdown dropdown-end mr-4">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-7 md:w-10 rounded-full">
-                                    <img src={user.photoURL ? user.photoURL : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"} alt={user.displayName} />
-                                </div>
-                            </label>
-                            <ul tabIndex={0} className=":  dropdown-content mt-3 z-[1] p-2 shadow bg-green-200 rounded-b-full rounded-l-full py-2 px-4">
-                                <li>
-                                    <h3 className=" font-semibold "> {user.displayName
-                                    }</h3>
+                    user?.email ?
+                        <div className="navbar-end flex items-center">
+                            <div className="dropdown dropdown-end mr-4">
 
-                                </li>
-                                <li>
-                                    <h3 className="font-semibold  ">{user.email
-                                    }</h3>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 
-                                </li>
-                            </ul>
+                                    <div className="w-7 md:w-10 rounded-full">
 
+                                        <img src={user.photoURL ? user.photoURL : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"} alt={user.displayName} />
+                                    </div>
+
+                                </label>
+                                <ul tabIndex={0} className=":  dropdown-content mt-3 z-[1] p-2 shadow bg-green-200 rounded-b-full rounded-l-full py-2 px-4">
+                                    <li>
+                                        <h3 className=" font-semibold "> {user.displayName
+                                        }</h3>
+
+                                    </li>
+                                    <li>
+                                        <h3 className="font-semibold  ">{user.email
+                                        }</h3>
+
+                                    </li>
+                                </ul>
+
+                            </div>
+
+
+                            <div className="navbar-end">
+                                <Link onClick={logout} className=" text-[10px] md:text-[18px] px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign Out</Link>
+                            </div>
                         </div>
-                        
-                        
-                        <Link onClick={logout} className=" text-[10px] md:text-[18px] px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign Out</Link>
-                    </div> : <div className="navbar-end">
-                        <Link to='/signin' className="text-[12px] md:text-[18px] px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign In</Link>
-                    </div>
+                        :
+                        <div className="navbar-end">
+
+
+                            <Link to='/signin' className="text-[12px] md:text-[18px] px-4 py-1 rounded-md bg-[#e54040] text-[#000000] font-bold ">Sign In</Link>
+                        </div>
                 }
             </div>
 

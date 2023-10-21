@@ -3,11 +3,15 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-     ],
-     darkMode: 'class',
+  ],
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary-color': '#0a0d1d',
+        'secondary-color': '#7c162e',
+      },
+    },
   },
   plugins: [require("daisyui")],
 }
-

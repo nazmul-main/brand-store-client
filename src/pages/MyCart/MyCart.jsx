@@ -40,7 +40,7 @@ const MyCart = () => {
                     .then(data => {
                         console.log();
                         if (data.deletedCount > 0) {
-                            const remaining = loadedCart.filter(cart => cart._id !== _id)
+                            const remaining = cart.filter(cart => cart._id !== _id)
                             setCart(remaining)
 
                             Swal.fire(
@@ -65,7 +65,7 @@ const MyCart = () => {
 
 
     return (
-        <div className="max-w-screen-xl mx-auto px-4 h-[80vh]">
+        <div className="max-w-screen-xl mx-auto px-4 ">
 
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">

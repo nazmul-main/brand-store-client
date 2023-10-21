@@ -38,6 +38,7 @@ const SignUp = () => {
         /* creatting  user */
         createUser(email, password)
             .then(res => {
+                console.log(res);
                 window.location.reload();
                 toast.success('Sign Up successfully');
 

@@ -61,6 +61,7 @@ const AddProduct = () => {
                                 name="name"
                                 type="text"
                                 placeholder="Name"
+                                required
                             />
                         </div>
                         <div>
@@ -72,6 +73,7 @@ const AddProduct = () => {
                                 name="type"
                                 type="text"
                                 placeholder="phone"
+                                required
                             />
                         </div>
                         <div>
@@ -83,6 +85,7 @@ const AddProduct = () => {
                                 name="price"
                                 type="text"
                                 placeholder="Price"
+                                required
                             />
                         </div>
 
@@ -96,6 +99,7 @@ const AddProduct = () => {
                                 name="photo"
                                 type="text"
                                 placeholder="image"
+                                required
                             />
                         </div>
                         <div>
@@ -104,6 +108,7 @@ const AddProduct = () => {
                             </label>
                             <select
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                required
                                 name="brand"
                             >
                                 <option value="Select" selected>Select</option>
@@ -124,6 +129,7 @@ const AddProduct = () => {
                                 name="rating"
                                 type="text"
                                 placeholder="Rating"
+                                required
                             />
                         </div>
                         <div className="col-span-2">
@@ -135,6 +141,7 @@ const AddProduct = () => {
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     name="description"
                                     placeholder="Description"
+                                    required
                                 ></textarea>
                             </span>
                             <button className="btn bg-gray-700  text-red-500 hover:bg-gray-800  w-full my-4">ADD</button>

@@ -54,7 +54,9 @@ const myCreateRoute = createBrowserRouter([
             },
             {
                 path: "/details/:_id",
-                element: <Details></Details>,
+                element: <PrivateRoute>
+                    <Details></Details>
+                </PrivateRoute>,
                 loader:() => fetch('https://phone-store-eight.vercel.app/phones')
                 
             },

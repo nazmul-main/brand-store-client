@@ -27,6 +27,8 @@ const SignIn = () => {
             .then(res => {
                 toast.success('Sigin in successfully');
                 navigate(location?.state ? location.state : '/')
+                window.location.reload();
+
 
             })
             .catch(err => {

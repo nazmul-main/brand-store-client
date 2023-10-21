@@ -22,8 +22,8 @@ const OurProduct = () => {
   const displayedPhones = phonesdata.slice(0, 4);
 
   return (
-    <div className='max-w-screen-xl px-4 mx-auto text-center mt-12'>
-      <h1 className='font-bold text-xl md:text-4xl'>Our Products</h1>
+    <div className='max-w-screen-xl px-4 mx-auto text-center my-12'>
+      <h1 className='font-bold text-xl md:text-4xl md:my-10 my-4'>Our Products</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center">
         {displayedPhones.map(phone => (
           <PhoneCard key={phone._id} phone={phone} />
@@ -31,7 +31,7 @@ const OurProduct = () => {
       </div>
       <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
         <Link to='/allphones'>
-          <button className="py-2 px-4 text-white bg-green-500 rounded hover:bg-green-700">Update</button>
+          <button className="py-2 px-4 text-white bg-green-500 rounded hover:bg-green-700 my-3 md:my">Update</button>
         </Link>
       </div>
     </div>

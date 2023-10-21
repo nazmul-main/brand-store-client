@@ -43,7 +43,7 @@ const myCreateRoute = createBrowserRouter([
                 element: <SignIn></SignIn>
             },
             {
-                path: "/signUp",
+                path: "/signup",
                 element: <SignUp></SignUp>
             },
             {

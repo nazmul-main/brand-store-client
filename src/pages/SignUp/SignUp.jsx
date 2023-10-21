@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
 import toast from "react-hot-toast";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useState } from "react";
 
 
 const SignUp = () => {
-
+    const [showPassword, setShowPassword] = useState(false);
     const { createUser } = useAuth()
 
     const handleSubmit = e => {
@@ -44,7 +47,7 @@ const SignUp = () => {
     return (
         <div>
             <div className="flex items-center justify-center max-w-screen-xl mx-auto">
-                <div className="bg-white p-8 rounded-lg shadow-md w-1/3">
+                <div className="bg-white p-8 rounded-lg shadow-md lg:w-1/3">
                     <h2 className="text-2xl font-semibold text-gray-700 mb-6">Sign Up</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -59,18 +62,35 @@ const SignUp = () => {
                             <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">Photo </label>
                             <input type="text" id="text" name="photo" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="photo url" required />
                         </div>
-                        <div className="mb-4">
-                            <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">Password</label>
-                            <input type="text" id="password" name="password" className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-indigo-200" placeholder="********" required />
+                        <div className="relative mb-4">
+                        <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">
+                            Password
+                        </label>
+                        <div className="relative">
+                            <input
+                                className=" border  w-full rounded-md py-2 px-2 pr-10"
+                                placeholder="Password"
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                id="password"
+                                required
+                            />
+                            <span
+                                className="text-[#ff3f7f] absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </span>
                         </div>
+                    </div>
                         <div className="mb-4">
                             <button type="submit" className="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 focus:ring focus:ring-indigo-200">Sign Up</button>
                         </div>
                     </form>
-                    <p className="text-center text-gray-600">Already have an account? <Link to={'/signin'}>Sign In</Link></p>
-                    <div className="mt-4">
-                        <button type="button" className="w-full bg-red-500 text-white py-2 rounded-lg hover-bg-red-600 focus:ring focus:ring-red-200">Sign up with Google</button>
-                    </div>
+                    <p className="text-center text-gray-600">You already have an account? <Link className="font-bold text-blue-600" to={'/signin'}>SignUp</Link></p>
+                <div className="mt-4">
+                    <SocialLogin></SocialLogin>
+                </div>
                 </div>
             </div>
 

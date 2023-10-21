@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
 const MyCart = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+        });
+      }, []);
 
     const loadedCart = useLoaderData()
     const [cart , setCart] = useState(loadedCart)
@@ -66,7 +73,7 @@ const MyCart = () => {
                     cart.map(item => (
                         <div key={item._id}>
                             <div>
-                                <div className="bg-white rounded-lg shadow-md p-4 w-64">
+                                <div data-aos="fade-down-left" className="bg-white rounded-lg shadow-md p-4 w-64">
                                     <div>
                                         <img src={item.photo} alt='' className="w-full  object-cover mb-2" />
                                         <h2 className=" font-bold mb-2 text">{item.name}</h2>

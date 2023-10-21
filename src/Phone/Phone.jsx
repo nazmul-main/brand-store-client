@@ -2,6 +2,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 
 
@@ -17,6 +20,13 @@ const overlayStyle = {
 
 
 const Phone = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+        });
+      }, []);
+
     const phone = useLoaderData()
     console.log(phone);
 
@@ -65,13 +75,13 @@ const Phone = () => {
             </Carousel>
             <h2 className='text-4xl font-bold text-center my-12'></h2>
 
-            <div className="max-w-screen-xl  mx-auto px-4 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  my-12">
+            <div className=" max-w-screen-xl  mx-auto px-4 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  my-12">
 
                 {
 
                     phone.map(data =>
-                        <div key={data._id} className="">
-                            <div className="bg-white rounded-lg shadow-md p-4 w-64">
+                        <div   key={data._id} className="">
+                            <div  data-aos="flip-left" className="bg-white rounded-lg shadow-md p-4 w-64">
                                 <div>
                                     <img src={data.photo} alt='' className="w-full  object-cover mb-2" />
                                     <h2 className=" font-bold mb-2 text">{data.name}</h2>

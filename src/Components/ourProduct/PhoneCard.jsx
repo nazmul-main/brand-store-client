@@ -1,16 +1,24 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 
 
 
 const PhoneCard = ({ phone }) => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+        });
+      }, []);
 
     const { _id, name, type, price, photo, brand, rating, } = phone
     return (
-        <div>
-            <div className=" bg-white rounded-lg shadow-md p-4 w-64">
+    
+            <div data-aos="zoom-in-up" className="  bg-white rounded-lg shadow-md p-4 w-64">
                 <div>
                     <img src={photo} alt='' className="w-full h-56  object-cover mb-2" />
                     <h2 className=" font-bold mb-2 text">{name}</h2>
@@ -49,7 +57,7 @@ const PhoneCard = ({ phone }) => {
                 </div>
 
             </div>
-        </div>
+    
     );
 };
 

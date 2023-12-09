@@ -2,7 +2,7 @@
 
 Welcome to our Phone Store website! This website offers a comprehensive set of features to provide you with a convenient and secure shopping experience for mobile phones.
 
-1. Visit our website at [YourWebsiteURLHere](#).
+1. Visit our website at [VIsit live site (https://brand-sotre.web.app)](#).
 2. Explore the sections in the navigation bar to find the products you're interested in.
 3. If you'd like to make purchases, consider signing in or signing up to access additional features such as cart management and order tracking.
 

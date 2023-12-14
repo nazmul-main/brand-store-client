@@ -10,6 +10,9 @@ const Details = () => {
     const phones = useLoaderData();
 
 
+    
+
+
     useEffect(() => {
         if (phones) {
             // Filter the phones data based on _id

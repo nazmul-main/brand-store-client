@@ -18,10 +18,10 @@ const Update = () => {
         // console.log(name, type, price, photo, brand, rating,);
 
         fetch(`https://phone-store-eight.vercel.app/phones/${updatePhone._id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
             body: JSON.stringify({
                 name,
                 type,

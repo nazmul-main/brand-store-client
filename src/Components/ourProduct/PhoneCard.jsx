@@ -15,7 +15,7 @@ const PhoneCard = ({ phone }) => {
         });
       }, []);
 
-    const { _id, name, type, price, photo, brand, rating, } = phone
+    const { _id, name, type, price, photo, brand, rating,  } = phone
     return (
     
             <div data-aos="zoom-in-up" className="  bg-white rounded-lg shadow-md p-4 w-64">

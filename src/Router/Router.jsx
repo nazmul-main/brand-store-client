@@ -13,6 +13,7 @@ import Update from "../Components/Update/Update";
 import Error from "../pages/Error/Error";
 import Details from "../Components/Details/Details";
 import AllPhones from "../Components/All Phones/AllPhones";
+import ABout from "../pages/About/ABout";
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ const myCreateRoute = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://phone-store-eight.vercel.app/phon/${params.brand}`)
 
                
+            },
+            {
+                path: "/about",
+                element:<ABout></ABout>
             },
         ]
     }
